@@ -1,0 +1,25 @@
+{
+	"name": "PL_FILEEXISTS",
+	"properties": {
+		"activities": [
+			{
+				"name": "Validation1",
+				"type": "Validation",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "DSValidateCopy",
+						"type": "DatasetReference"
+					},
+					"timeout": "0.12:00:00",
+					"sleep": 10,
+					"childItems": true
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-05-25T01:57:06Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

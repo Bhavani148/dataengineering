@@ -1,0 +1,213 @@
+{
+	"name": "PL_REST_PARQUET",
+	"properties": {
+		"activities": [
+			{
+				"name": "DS_RESTAPI_PARQUET",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "RestSource",
+						"httpRequestTimeout": "00:01:40",
+						"requestInterval": "00.00:00:00.010",
+						"requestMethod": "GET",
+						"paginationRules": {
+							"supportRFC5988": "true"
+						}
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['recipes'][0]['id']"
+								},
+								"sink": {
+									"name": "id"
+								}
+							},
+							{
+								"source": {
+									"path": "$['recipes'][0]['name']"
+								},
+								"sink": {
+									"name": "name"
+								}
+							},
+							{
+								"source": {
+									"path": "$['recipes'][0]['ingredients'][0]"
+								},
+								"sink": {
+									"name": "recipes'][0]['ingredients']["
+								}
+							},
+							{
+								"source": {
+									"path": "$['recipes'][0]['instructions'][0]"
+								},
+								"sink": {
+									"name": "recipes'][0]['instructions']["
+								}
+							},
+							{
+								"source": {
+									"path": "$['recipes'][0]['prepTimeMinutes']"
+								},
+								"sink": {
+									"name": "prepTimeMinutes"
+								}
+							},
+							{
+								"source": {
+									"path": "$['recipes'][0]['cookTimeMinutes']"
+								},
+								"sink": {
+									"name": "cookTimeMinutes"
+								}
+							},
+							{
+								"source": {
+									"path": "$['recipes'][0]['servings']"
+								},
+								"sink": {
+									"name": "servings"
+								}
+							},
+							{
+								"source": {
+									"path": "$['recipes'][0]['difficulty']"
+								},
+								"sink": {
+									"name": "difficulty"
+								}
+							},
+							{
+								"source": {
+									"path": "$['recipes'][0]['cuisine']"
+								},
+								"sink": {
+									"name": "cuisine"
+								}
+							},
+							{
+								"source": {
+									"path": "$['recipes'][0]['caloriesPerServing']"
+								},
+								"sink": {
+									"name": "caloriesPerServing"
+								}
+							},
+							{
+								"source": {
+									"path": "$['recipes'][0]['tags'][0]"
+								},
+								"sink": {
+									"name": "recipes'][0]['tags']["
+								}
+							},
+							{
+								"source": {
+									"path": "$['recipes'][0]['userId']"
+								},
+								"sink": {
+									"name": "userId"
+								}
+							},
+							{
+								"source": {
+									"path": "$['recipes'][0]['image']"
+								},
+								"sink": {
+									"name": "image"
+								}
+							},
+							{
+								"source": {
+									"path": "$['recipes'][0]['rating']"
+								},
+								"sink": {
+									"name": "rating"
+								}
+							},
+							{
+								"source": {
+									"path": "$['recipes'][0]['reviewCount']"
+								},
+								"sink": {
+									"name": "reviewCount"
+								}
+							},
+							{
+								"source": {
+									"path": "$['recipes'][0]['mealType'][0]"
+								},
+								"sink": {
+									"name": "recipes'][0]['mealType']["
+								}
+							},
+							{
+								"source": {
+									"path": "$['total']"
+								},
+								"sink": {
+									"name": "total"
+								}
+							},
+							{
+								"source": {
+									"path": "$['skip']"
+								},
+								"sink": {
+									"name": "skip"
+								}
+							},
+							{
+								"source": {
+									"path": "$['limit']"
+								},
+								"sink": {
+									"name": "limit"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "REST_PAQUET",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Parquet1",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-05-23T23:56:10Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
