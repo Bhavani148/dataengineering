@@ -1,0 +1,15 @@
+{
+	"name": "bhavanidf-azureproject",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Enabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e90c5d9b-6e91-40ee-806d-7851eb3f035f",
+		"tenantId": "6f888ddc-e2c2-4389-8682-e24301092d94"
+	}
+}
